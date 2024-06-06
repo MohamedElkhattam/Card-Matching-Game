@@ -28,6 +28,7 @@ function reloadImages() {
     loadedCards = [];
     noOfMatched = 0;
     numberOfClicks = 0;
+    document.getElementById("clicks").innerHTML = `Number Of Clicks &#187; ${numberOfClicks}`;
     for (var j = 0; j < 8; j++) {
         var getCard = cardsArr[Math.floor(Math.random() * 54)];
         loadedCards[j] = getCard;
