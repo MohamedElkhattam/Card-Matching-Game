@@ -47,10 +47,10 @@ function reloadImages() {
 // Main function called on each button click that make all checks for the single card and same card and different cards
 async function Flip(pressedButton) {
     if (processing) return; // This is used to check if 2 cards are flipped already then no more cards to flip
-    document.getElementById("clicks").innerHTML = `Number Of Clicks &#187; ${++numberOfClicks}`;
     var button = document.getElementById(pressedButton.id);
     var cardID = parseInt(pressedButton.id);
     if (currentCardID === undefined) { //one card clicked
+        document.getElementById("clicks").innerHTML = `Number Of Clicks &#187; ${++numberOfClicks}`;
         currentCard = loadedCards[cardID];
         currentCardID = cardID;
         button.classList.add('flipped');
@@ -60,6 +60,7 @@ async function Flip(pressedButton) {
         button.classList.add('flipped');
         processing = true;
         if (currentCard === nextCard && currentCardID !== nextCardID) {//2 cards matched with different ID's
+            document.getElementById("clicks").innerHTML = `Number Of Clicks &#187; ${++numberOfClicks}`;
             await delay(350);
             match();
             timeoutID = setTimeout(() => {
@@ -71,6 +72,7 @@ async function Flip(pressedButton) {
             }, 5000);
         } 
         else if (currentCardID !== nextCardID) { //Non match
+            document.getElementById("clicks").innerHTML = `Number Of Clicks &#187; ${++numberOfClicks}`;
             await delay(350);
             nonMatch();
             timeoutID = setTimeout(() => {
